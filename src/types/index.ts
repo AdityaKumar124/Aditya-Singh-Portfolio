@@ -16,6 +16,7 @@ export interface PersonalInfo {
   linkedin: string;
   resumeAvailable: boolean;
   resumeFileName?: string;
+  profileImage?: string;
 }
 
 export interface SkillItem {

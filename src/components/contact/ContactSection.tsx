@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { personalData } from "@/data/personal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -84,6 +85,31 @@ export const ContactSection: React.FC = () => {
           {/* Left Column: Direct verified contact channels */}
           <div className="lg:col-span-5 space-y-4">
             <GlassCard glow="cyan" className="p-6 sm:p-8 space-y-6">
+              {/* Profile Contact Header */}
+              <div className="flex items-center gap-3.5 pb-4 border-b border-slate-800">
+                <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-cyber-cyan/40 shadow-md shadow-cyber-cyan/15 shrink-0">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Aditya Kumar"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-slate-950" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
+                    Aditya Kumar
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-normal">
+                      ONLINE
+                    </span>
+                  </h4>
+                  <p className="font-mono text-[11px] text-slate-400">
+                    Open to Collaborations & Opportunities
+                  </p>
+                </div>
+              </div>
+
               <h3 className="text-xs font-mono uppercase tracking-widest text-cyber-cyan flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-cyber-cyan animate-ping" />
                 <span>DIRECT REACH</span>

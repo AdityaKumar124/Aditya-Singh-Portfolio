@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
+import { personalData } from "@/data/personal";
 import { milestonesData } from "@/data/education";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Badge } from "@/components/ui/Badge";
-import { Cpu, CheckCircle2, ChevronRight, Terminal, BookOpen } from "lucide-react";
+import { Cpu, CheckCircle2, ChevronRight, Terminal, BookOpen, ShieldCheck } from "lucide-react";
 
 export const AboutSection: React.FC = () => {
   const [selectedMilestone, setSelectedMilestone] = useState(milestonesData[0]);
@@ -73,6 +75,32 @@ export const AboutSection: React.FC = () => {
           {/* Quick Profile Summary Card */}
           <div className="lg:col-span-5 space-y-4">
             <GlassCard glow="cyan" className="p-6 sm:p-8">
+              {/* Profile Card Identity Header */}
+              <div className="flex items-center gap-4 pb-5 mb-5 border-b border-slate-800/80">
+                <div className="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-cyber-cyan/50 shadow-lg shadow-cyber-cyan/20 shrink-0">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt={personalData.name}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-slate-950" />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-[10px] font-mono text-cyber-cyan mb-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    VERIFIED CANDIDATE
+                  </div>
+                  <h3 className="text-lg font-bold text-white leading-tight">
+                    {personalData.name}
+                  </h3>
+                  <p className="font-mono text-xs text-slate-400">
+                    B.Tech CSE • Lovely Professional University
+                  </p>
+                </div>
+              </div>
+
               <h4 className="text-xs font-mono uppercase tracking-widest text-cyber-cyan mb-4 flex items-center gap-2">
                 <Cpu className="w-4 h-4" />
                 <span>PROFILE MATRIX</span>

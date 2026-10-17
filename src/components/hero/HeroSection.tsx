@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { personalData } from "@/data/personal";
-import { FingerprintCanvas } from "@/components/fingerprint/FingerprintCanvas";
-import { ArrowDown, Code2, Sparkles, Send, Eye } from "lucide-react";
+import { HeroProfileVisual } from "./HeroProfileVisual";
+import { ArrowDown, Code2, Sparkles, Send, Eye, ShieldCheck } from "lucide-react";
 
 export const HeroSection: React.FC = () => {
   return (
@@ -20,15 +21,36 @@ export const HeroSection: React.FC = () => {
           
           {/* Left Column: Typography, Concept, Actions */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-6 sm:space-y-8 z-10">
-            {/* Status indicator */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyber-cyan/30 text-xs font-mono text-cyber-cyan backdrop-blur-md self-start shadow-sm shadow-cyber-cyan/20">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-cyan opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-cyan" />
-              </span>
-              <span className="tracking-widest font-semibold uppercase">
-                {personalData.statusIndicator}
-              </span>
+            {/* Identity & Status header row */}
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Profile identity avatar chip */}
+              <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-slate-900/90 border border-cyber-cyan/40 backdrop-blur-md shadow-md shadow-cyber-cyan/15">
+                <div className="relative w-6 h-6 rounded-full overflow-hidden border border-cyber-cyan shadow-sm">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Aditya Kumar"
+                    width={24}
+                    height={24}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <span className="absolute bottom-0 right-0 w-1.5 h-1.5 rounded-full bg-emerald-400 border border-slate-950" />
+                </div>
+                <span className="text-xs font-mono font-semibold text-white flex items-center gap-1">
+                  Aditya Kumar
+                  <ShieldCheck className="w-3.5 h-3.5 text-cyber-cyan inline" />
+                </span>
+              </div>
+
+              {/* Status indicator */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs font-mono text-cyber-cyan backdrop-blur-md shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-cyan opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-cyan" />
+                </span>
+                <span className="tracking-widest font-semibold uppercase text-[11px]">
+                  {personalData.statusIndicator}
+                </span>
+              </div>
             </div>
 
             {/* Central Concept Quote */}
@@ -91,17 +113,9 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: 3D Neural Fingerprint Centerpiece */}
+          {/* Right Column: Hero Profile Visual Centerpiece with 3D Neural View Toggle */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <div className="w-full relative">
-              {/* Surrounding biometric HUD frame */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyber-cyan/40 pointer-events-none" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-cyber-blue/40 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-cyber-blue/40 pointer-events-none" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-cyber-violet/40 pointer-events-none" />
-
-              <FingerprintCanvas />
-            </div>
+            <HeroProfileVisual />
           </div>
         </div>
 

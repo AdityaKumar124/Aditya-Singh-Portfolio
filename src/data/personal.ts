@@ -20,4 +20,5 @@ export const personalData: PersonalInfo = {
   linkedin: "https://linkedin.com/in/aditya-kumar6204300911/",
   resumeAvailable: false, // Set to true when actual PDF is placed in public/
   resumeFileName: "Aditya_Kumar_Resume.pdf",
+  profileImage: "/images/profile.jpg",
 };

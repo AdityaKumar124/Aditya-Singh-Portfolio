@@ -126,6 +126,28 @@ body {
   animation: circuitFlow 4s linear infinite;
 }
 
+/* Profile HUD scanline animation */
+@keyframes hudScan {
+  0% {
+    top: -5%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+.animate-hud-scan {
+  animation: hudScan 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 /* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {

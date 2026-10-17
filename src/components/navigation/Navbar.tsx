@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { personalData } from "@/data/personal";
 import { Menu, X, Terminal, Cpu } from "lucide-react";
 
@@ -49,17 +50,21 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Monogram / Brand */}
+        {/* Monogram / Profile Brand */}
         <a
           href="#hero"
           className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-cyber-cyan rounded-lg p-1"
           aria-label="Aditya Kumar - Home"
         >
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-cyber-blue/30 via-slate-900 to-cyber-violet/30 border border-cyber-cyan/40 group-hover:border-cyber-cyan shadow-md shadow-cyber-blue/20 transition-all duration-300">
-            <span className="font-mono font-black text-sm tracking-tighter text-white group-hover:text-cyber-cyan transition-colors">
-              AK
-            </span>
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-cyber-cyan animate-pulse" />
+          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden border border-cyber-cyan/40 group-hover:border-cyber-cyan shadow-md shadow-cyber-blue/20 transition-all duration-300">
+            <Image
+              src="/images/profile.jpg"
+              alt="Aditya Kumar"
+              width={40}
+              height={40}
+              className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110"
+            />
+            <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-cyber-cyan animate-pulse border border-slate-950" />
           </div>
 
           <div className="hidden sm:flex flex-col">
